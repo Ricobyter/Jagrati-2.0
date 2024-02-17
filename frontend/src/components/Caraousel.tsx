@@ -1,6 +1,5 @@
 import  { useState } from 'react';
 import { BsChevronCompactLeft, BsChevronCompactRight } from 'react-icons/bs';
-import { RxDotFilled } from 'react-icons/rx';
 
 function Caraousel() {
   const slides = [
@@ -41,7 +40,7 @@ function Caraousel() {
   };
 
   return (
-    <div className='max-w-full h-[700px] w-full m-auto  relative group'>
+    <div className='max-w-full h-[700px] w-full m-auto  relative group z-10 mt-0'>
       <div
         style={{ backgroundImage: `url(${slides[currentIndex].url})` }}
         className='w-full h-full  bg-center bg-cover duration-500'
