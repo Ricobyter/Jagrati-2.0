@@ -39,7 +39,7 @@ export default function Navbar() {
 
         <div className='bg-orange-500 text-white'>
           <div className='mx-auto px-4 sm:px-6 lg:px-8'>
-            <div className='flex items-center  h-16'>
+            <div className='flex items-center md:justify-center h-16'>
                 {/* hamburger */}
               <div className='-mr-2 flex md:hidden'>
                 <button className='p-2 justify-center flex items-center rounded-md text-white cursor-pointer' type='button' onClick={handleMenu} >
@@ -68,7 +68,7 @@ export default function Navbar() {
               <div className='md:hidden '>
                 <div className='ox-2 pt-2 pb-3 space-y-1 sm:px-3'>
                 {NavLinks.map((link) => (
-                    <a href={link.link} key={link.title} className='text-white  z-50 block px-3 py-2 rounded-md text-base font-medium'>{link.title}</a>
+                    <a href={link.link} key={link.title} className='text-white text-xl font-serif z-50 block px-3 py-2 rounded-md  font-medium'>{link.title}</a>
                   ))}
 
                 </div>
