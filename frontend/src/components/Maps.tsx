@@ -12,7 +12,7 @@ export default function Maps() {
   return (
     <div style={{ height: '100vh', width: '100%' }}>
       <GoogleMapReact
-        bootstrapURLKeys={{ key: "AIzaSyAL_RkcLV2yO03jJOgvPCK4GVzm9UTeHAc" }}
+        bootstrapURLKeys={{ key: "" }}
         defaultCenter={defaultProps.center}
         defaultZoom={defaultProps.zoom}
       >

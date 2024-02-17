@@ -18,5 +18,5 @@ function Maps2() {
 }
 
 export default GoogleApiWrapper({
-    apiKey: ('AIzaSyAL_RkcLV2yO03jJOgvPCK4GVzm9UTeHAc')
+    apiKey: ('')
   })(Maps2)
