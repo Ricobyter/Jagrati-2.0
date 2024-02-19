@@ -2,7 +2,7 @@ import logo from '../assets/images/logo.png'
 import { useState } from 'react'
 
 import {FaBars, FaTimes} from 'react-icons/fa'
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 const NavLinks = [
   {title: "Home",
@@ -60,7 +60,7 @@ export default function Navbar() {
                   {NavLinks.map((link) => (
                     <a href={link.link} key={link.title} className='text-white border-b-2 border-transparent hover:border-b-white transition-all duration-200'>{link.title}</a>
                   ))}
-                  <button className='text-white border-b-2 border-transparent hover:border-b-white transition-all duration-200' onClick={() =>navigate("login")}>Login</button>
+                  <button className='text-white border-b-2 border-transparent hover:border-b-white transition-all duration-200' ><Link to="/login">Login</Link></button>
 
                 </div>
 
