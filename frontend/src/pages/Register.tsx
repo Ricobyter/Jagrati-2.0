@@ -1,8 +1,20 @@
-import { Link, useNavigate } from 'react-router-dom'
+import { Link} from 'react-router-dom'
 import img1 from '../assets/images/child.jpg'
+import { useState } from 'react';
 
 export default function Register() {
-    const navigate = useNavigate()
+    // const navigate = useNavigate();
+
+    const [selectedYear, setSelectedYear] = useState<number | null>(null);
+    const [selectedDesignation, setSelectedDesignation] = useState<string | null>("");
+
+    // Generate options HTML
+    const optionsHTML = [];
+    for (let ini = 2018; ini <= 2024; ini++) {
+        optionsHTML.push(<option key={ini} value={ini}>{ini}</option>);
+    }
+
+
 
 
   return (
@@ -24,6 +36,30 @@ export default function Register() {
           <div className='mt-5'>
           <input type = 'text' className = 'border border-gray-400 py-1 px-2 w-full rounded-sm' placeholder = 'Email'/>
           </div>
+          <div className='mt-5 flex gap-3'>
+                <select
+                    name="cars"
+                    id="cars"
+                    value={selectedYear}
+                    onChange={(e) => setSelectedYear(parseInt(e.target.value))}
+                    className='border border-gray-400 py-1 px-2 w-full rounded-sm text-gray-800'
+                    defaultValue={2022}
+                >
+                    {optionsHTML}
+                </select>
+                <select
+                    name="designation"
+                    id="designation"
+                    value={selectedYear}
+                    onChange={(e) => setSelectedDesignation((e.target.value))}
+                    className='border border-gray-400 py-1 px-2 w-full rounded-sm text-gray-800'
+                    defaultValue="PG"
+                >
+                    <option value="undergraduate">UG</option>
+                    <option value="postgraduate">PG</option>
+                </select>
+
+            </div>
           <div className='mt-5'>
           <input type = 'password' className = 'border border-gray-400 py-1 px-2 w-full rounded-sm' placeholder = 'Password'/>
           </div>
@@ -35,10 +71,9 @@ export default function Register() {
             <input type="file"  />
           </div>
           <div className='mt-5'>
-            <button className='text-center text-white w-full rounded-lg py-2 font-semibold bg-gradient-to-r from-orange-500 to-orange-400 hover:{bg-gradient-to-r from-orange-400 to-orange-500}' ><Link to="/login">Register Now</Link></button>
+            <button className='text-center text-white w-full rounded-lg py-2 font-semibold bg-gradient-to-r from-orange-500 to-orange-400 hover:{bg-gradient-to-r from-orange-400 to-orange-500}' ><Link to="/">Register Now</Link></button>
           </div>
         </form>
-         
       </div>
 
     </div>
