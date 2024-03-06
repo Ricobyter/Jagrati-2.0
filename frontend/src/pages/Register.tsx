@@ -34,6 +34,9 @@ export default function Register() {
           <input type = 'text' className = 'border border-gray-400 py-1 px-2 w-full rounded-sm' placeholder = 'Your Name'/>
           </div>
           <div className='mt-5'>
+          <input type = 'password' className = 'border border-gray-400 py-1 px-2 w-full rounded-sm' placeholder = ' Roll No.'/>
+          </div>
+          <div className='mt-5'>
           <input type = 'text' className = 'border border-gray-400 py-1 px-2 w-full rounded-sm' placeholder = 'Email'/>
           </div>
           <div className='mt-5 flex gap-3'>
@@ -63,9 +66,7 @@ export default function Register() {
           <div className='mt-5'>
           <input type = 'password' className = 'border border-gray-400 py-1 px-2 w-full rounded-sm' placeholder = 'Password'/>
           </div>
-          <div className='mt-5'>
-          <input type = 'password' className = 'border border-gray-400 py-1 px-2 w-full rounded-sm' placeholder = ' Confirm Password'/>
-          </div>
+
           <div className='mt-5 flex'>
             <p>Insert profile picture <span className='text-orange-500'>(optional)</span></p>
             <input type="file"  />
