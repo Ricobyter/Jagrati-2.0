@@ -47,7 +47,7 @@ export default function Navbar() {
               
                 {/* hamburger */}
               <div className='-mr-2 flex md:hidden'>
-                <button className='p-2 justify-center flex items-center rounded-md text-white cursor-pointer' type='button' onClick={handleMenu} >
+                <button className='py-1 px-2 justify-center flex items-center rounded-md text-white cursor-pointer' type='button' onClick={handleMenu} >
                 {open === true? <FaTimes />: <FaBars/>}
                 </button>
               </div>
@@ -58,7 +58,6 @@ export default function Navbar() {
                     <a href={link.link} key={link.title} className='text-white border-b-2 border-transparent hover:border-b-white transition-all duration-200'>{link.title}</a>
                   ))}
                   <button className='text-white border-b-2 border-transparent hover:border-b-white transition-all duration-200' ><Link to="/login">Login</Link></button>
-
                 </div>
 
               </div>
@@ -67,12 +66,11 @@ export default function Navbar() {
             {/* mobile-menu  */}
             {open? (
               <div className='md:hidden '>
-                <div className='ox-2 pt-2 pb-3 space-y-1 sm:px-3'>
+                <div className='px-2 py-1 space-y-1 sm:px-3'>
                 {NavLinks.map((link) => (
                     <a href={link.link} key={link.title} className='text-white text-xl font-serif z-50 block px-3 py-2 rounded-md  font-medium'>{link.title}</a>
                   ))}
                   
-
                 </div>
               </div>
             ): null}
