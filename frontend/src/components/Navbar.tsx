@@ -44,15 +44,12 @@ export default function Navbar() {
         <div className='bg-orange-500 text-white'>
           <div className='mx-auto px-4 sm:px-6 lg:px-8'>
             <div className='flex items-center md:justify-center h-16'>
+              
                 {/* hamburger */}
               <div className='-mr-2 flex md:hidden'>
                 <button className='p-2 justify-center flex items-center rounded-md text-white cursor-pointer' type='button' onClick={handleMenu} >
-
                 {open === true? <FaTimes />: <FaBars/>}
                 </button>
-                
-
-
               </div>
               {/* menu  */}
               <div className='hiddden md:block '>
@@ -65,9 +62,8 @@ export default function Navbar() {
                 </div>
 
               </div>
-                
-
             </div>
+
             {/* mobile-menu  */}
             {open? (
               <div className='md:hidden '>

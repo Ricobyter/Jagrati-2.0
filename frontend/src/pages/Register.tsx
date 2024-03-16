@@ -46,8 +46,8 @@ export default function Register() {
                     value={selectedYear}
                     onChange={(e) => setSelectedYear(parseInt(e.target.value))}
                     className='border border-gray-400 py-1 px-2 w-full rounded-sm text-gray-800'
-                    defaultValue={2022}
                 >
+                  <option value="" disabled selected hidden>Select Year...</option>
                     {optionsHTML}
                 </select>
                 <select
@@ -56,8 +56,8 @@ export default function Register() {
                     value={selectedYear}
                     onChange={(e) => setSelectedDesignation((e.target.value))}
                     className='border border-gray-400 py-1 px-2 w-full rounded-sm text-gray-800'
-                    defaultValue="PG"
                 >
+                  <option value="" disabled selected hidden>Select Designation... </option>
                     <option value="undergraduate">UG</option>
                     <option value="postgraduate">PG</option>
                 </select>
@@ -80,7 +80,6 @@ export default function Register() {
     </div>
   </div>
   
-
 </div>
   )
 }
