@@ -37,7 +37,7 @@ export default function Register() {
             <form>
 
               <div className='mt-5'>
-                <input type='text' className='border border-gray-400 py-1 px-2 w-full rounded-sm' placeholder='Your Name' />
+                <input type='text' className='border border-gray-400 py-1 px-2 w-full rounded-sm' placeholder='Your Name' onChange={(e) => handleChange(e)}/>
               </div>
               <div className='mt-5'>
                 <input type='password' className='border border-gray-400 py-1 px-2 w-full rounded-sm' placeholder=' Roll No.' />
