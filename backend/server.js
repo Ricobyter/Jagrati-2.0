@@ -9,7 +9,6 @@ const port = process.env.POT || 3000;
 // const AuthRoute = require('./routes/AuthRoutes'); 
 
 mongoose.connect('mongodb://127.0.0.1:27017/jagratidb', {})
-
 const db = mongoose.connection;
 
 db.on('error', (err) => {
