@@ -2,22 +2,23 @@ import logo from '../assets/images/logo.png'
 import { useState } from 'react'
 
 import {FaBars, FaTimes} from 'react-icons/fa'
-import { Link, useNavigate } from 'react-router-dom';
+import { Link, } from 'react-router-dom';
+import { AnimatePresence, motion} from 'framer-motion'
 
 const NavLinks = [
-  {title: "Home",
+  {title: "Home Page",
   link: "/"
 },
-  {title: "About",
+  {title: "About Us",
   link: "/about"
 },
-  {title: "Gallery",
+  {title: "Our Gallery",
   link: "/gallery"
 },
-  {title: "Events",
+  {title: "Our Events",
   link: "/events"
 },
-  {title: "Contact",
+  {title: "Contact Us",
   link: "/contact"
 }, 
 
@@ -28,11 +29,33 @@ const NavLinks = [
 export default function Navbar() {
   const [open, setOpen]= useState<boolean>(false);
 
-  const navigate = useNavigate()
+  // const navigate = useNavigate()
 
   const handleMenu = () => {
     setOpen((prev) => !prev)
   };
+
+  const menuVariants = {
+    initial: {
+      scaleY : 0
+    },
+    animate : {
+      scaleY : 1,
+      transition: {
+        duration: 0.5,
+        ease: [0.12,0,0.39,0]
+      }
+    },
+    exit : {
+      scaleY: 0,
+      transition: {
+        duration: 0.5,
+        ease: [0.22,0,0.36,1]
+      }
+    }
+    
+
+  }
   return (
     <div className='sticky top-0 opacity-95 z-50 bg-white m-0 w-full'>
 
@@ -64,16 +87,26 @@ export default function Navbar() {
             </div>
 
             {/* mobile-menu  */}
+            <AnimatePresence>
+              <div>
             {open? (
-              <div className='md:hidden '>
-                <div className='px-2 py-1 space-y-1 sm:px-3'>
-                {NavLinks.map((link) => (
-                    <a href={link.link} key={link.title} className='text-white text-xl font-serif z-50 block px-3 py-2 rounded-md  font-medium'>{link.title}</a>
-                  ))}
-                  
+              <motion.div variants={menuVariants}
+              initial= "initial"
+              animate= "animate"
+              exit = "exit"
+               className='h-[83vh] bg-orange-500 origin-top flex justify-center items-center'>
+                <div className='flex justify-center items-center flex-col gap-3 '>
+                {
+                    NavLinks.map((link) => (
+                        <Link  to = {link.link} key={link.title} className='capitalize text-white text-4xl hover:scale-105 duration-150' onClick={handleMenu}>{link.title}</Link>
+                    ))
+                }
                 </div>
-              </div>
+
+              </motion.div>
             ): null}
+            </div>
+            </AnimatePresence>
           </div>
 
         </div>
