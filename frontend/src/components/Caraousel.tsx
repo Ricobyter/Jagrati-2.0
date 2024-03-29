@@ -1,6 +1,5 @@
 import  { useState } from 'react';
 import { BsChevronCompactLeft, BsChevronCompactRight } from 'react-icons/bs';
-import { RxDotFilled } from 'react-icons/rx';
 
 
 function Caraousel() {
@@ -35,10 +34,6 @@ function Caraousel() {
     const isLastSlide = currentIndex === slides.length - 1;
     const newIndex = isLastSlide ? 0 : currentIndex + 1;
     setCurrentIndex(newIndex);
-  };
-
-  const goToSlide = (slideIndex: any) => {
-    setCurrentIndex(slideIndex);
   };
 
   return (

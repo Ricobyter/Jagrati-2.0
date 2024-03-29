@@ -8,10 +8,11 @@ export default {
   ],
   theme: {
     extend: {
-      // fontFamily: {
-      //   rubik: ['Rubik', sans-serif],
-      // },
+
     },
+    fontFamily:{
+      jk: ['Protest Revolution']
+    } 
   },
   plugins: [
     require('@tailwindcss/forms'),
