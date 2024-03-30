@@ -52,7 +52,7 @@ export default function Navbar() {
   return (
     <div
       className={`transition-all duration-200 ease-in-out ${open ? "w-[60vw]" : "w-[15vw]"
-        } bg-white lg:w-[20vw] flex-col  text-black h-screen fixed`}
+        } bg-white lg:w-[20vw] flex-col  text-black h-screen fixed border-r-2 border-x-gray-200`}
     >
       <div className="mb-20 relative">
         {
@@ -81,7 +81,7 @@ export default function Navbar() {
             <Link to='/' className="pt-2">{link.title} </Link>
             </div>
              : 
-             <div>
+             <div className="text-xl pb-1 mt-2">
                {link.icon}
              </div>
 
