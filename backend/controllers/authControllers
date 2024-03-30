@@ -1,0 +1,59 @@
+//* They(Controllers) process requests coming from routers
+const User = require("../model/UserModel")
+
+//? Home Page logic
+
+const home = async (req,res) => {
+    try
+    {
+        res
+        .status(200)
+        .send(
+            "Welcome to homepage"
+        )
+    }
+    catch(err)
+    {
+        console.log(err)    
+    }
+
+}
+
+
+const register = async (req, res) => {
+    try {
+        let userexist = await User.findOne({ email: req.body.email });
+        if(userexist){
+            return res.status(400).json({
+                message: "User already exists"
+            })
+        } 
+        else{
+        let user = new User({
+            name: req.body.name,
+            email: req.body.email,
+            gender: req.body.phone,
+            year: req.body.year,
+            designation: req.body.phone,
+            password: req.body.password,
+        })
+        user.save()
+        .then(user => {
+            res.json({
+                message: 'User added successfully'
+            })
+        })
+        .catch(err => {
+            res.json({
+                message: "An error occured"
+            })
+        })
+    }
+    } catch (err) {
+        console.error("Error registering user:", err);
+        res.status(500).json({ message: "An error occurred while registering user", error: err.message });
+    }
+};
+
+
+module.exports = {home, register}

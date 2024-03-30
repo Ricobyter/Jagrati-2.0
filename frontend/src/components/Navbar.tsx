@@ -10,7 +10,7 @@ const NavLinks = [
   link: "/"
 },
   {title: "About Us",
-  link: "/about"
+  link: "/dashboard"
 },
   {title: "Our Gallery",
   link: "/gallery"
