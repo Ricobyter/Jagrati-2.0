@@ -3,6 +3,8 @@ import Caraousel from '../components/Caraousel';
 import About from '../components/About';
 import Footer from '../components/Footer';
 import Achievements from '../components/Achievements';
+import Newsletter from '../components/Newsletter';
+import Impacts from '../components/Impacts';
 // import Maps from '../components/Maps2.jsx'
 
 export default function Homepage() {
@@ -14,7 +16,9 @@ export default function Homepage() {
         <Caraousel />
       </section>
         <About />
-        <Achievements />
+        <Impacts />
+        <Newsletter />
+        {/* <Achievements /> */}
         {/* <Maps /> */}
         <Footer />
     </div>

@@ -1,6 +1,6 @@
-import { clothDonation1, clothDonation2, clothDonation3, clothDonation4, clothDonation5 } from "../images";
+import { clothDonation1, clothDonation2, clothDonation3, clothDonation4, clothDonation5, impact1, impact2, impact3, impact4 } from "../images";
 
-const events = [
+export const events = [
     {
         img : clothDonation1,
         title: "Cloth Donation",
@@ -33,5 +33,7 @@ const events = [
     }
 ]
 
-export default events
+
+
+export default {impact, events}
 
