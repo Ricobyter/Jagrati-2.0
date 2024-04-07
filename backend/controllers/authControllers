@@ -1,5 +1,8 @@
 //* They(Controllers) process requests coming from routers
 const User = require("../model/UserModel")
+// const bcrypt = require("bcryptjs")
+const bcrypt = require("bcryptjs")
+const jwt = require("jsonwebtoken")
 
 //? Home Page logic
 
@@ -19,9 +22,13 @@ const home = async (req,res) => {
 
 }
 
+//* User regisration logic
+
 
 const register = async (req, res) => {
     try {
+
+
         let userexist = await User.findOne({ email: req.body.email });
         if(userexist){
             return res.status(400).json({
@@ -29,18 +36,35 @@ const register = async (req, res) => {
             })
         } 
         else{
+            // Hash the password using Bcrypt
+        // const saltRound = 10;
+        // const hashPassword = await bcrypt.hash(req.body.password, 10);
+        // OR
+        // bcrypt.genSalt(10, (err, salt) => {
+        //     bcrypt.hash(user.password, salt, (err, hash) => {
+        //         if (err) throw err;
+        //         user.password = hash;
+        //     });
+        // }
         let user = new User({
             name: req.body.name,
             email: req.body.email,
             gender: req.body.phone,
+            designation: req.body.designation,
             year: req.body.year,
-            designation: req.body.phone,
+            // password: hashPassword,
             password: req.body.password,
-        })
+        });
+
         user.save()
         .then(user => {
+            let token = jwt.sign({name: user.name}, 'SecretValue', {expiresIn: '1h'})
             res.json({
-                message: 'User added successfully'
+                message: 'User added successfully',
+                token
+                // token : await user.generateToken(),
+
+
             })
         })
         .catch(err => {
@@ -56,4 +80,65 @@ const register = async (req, res) => {
 };
 
 
-module.exports = {home, register}
+// //* Refresh Token for User Login
+// const refreshToken = (req,res,next) => {``
+//     const refreshToken = req.body.refreshToken
+//     jwt.verify(refreshToken, 'RefreshToken', function(err, user){
+//         if(err){
+//             res.json({
+//                 err
+//             }) 
+//         }else{
+//             let token = jwt.sign({name: user.name}, 'SecretValue', {expiresIn: '10s'})
+//             let refreshToken = req.body.refreshToken
+//             res.status(200).json({
+//                 message: "Token refreshed successfully",
+//                 token,
+//                 refreshToken
+//             })
+//         }
+//     })
+
+// }
+
+
+// //* User Login Logic
+
+
+const login = async (req, res) => {
+    try {
+        const {email,password} = req.body
+
+        const userExist = await User.findOne({email})
+
+        if(!userExist)
+        {
+            return res.status(400).json({
+                message: "Invalid Credentials"
+            })
+        } 
+        else
+        {
+            // const isValidPassword = await  bcrypt.compare(password, userExist.password)
+
+            const isValidPassword = await userExist.comparePassword(password)
+
+            if(isValidPassword){
+                let token = jwt.sign({name: userExist.name}, 'SecretValue', {expiresIn: '1h'})
+                res.json({
+                    message: 'Login Successful',
+                    token
+                })
+            }else{
+                res.status(400).json({
+                    message: "Password don't match"
+                })
+            }
+
+        }
+    }catch(err){
+        console.log(err)
+    }
+}
+
+module.exports = {home, register, login}
