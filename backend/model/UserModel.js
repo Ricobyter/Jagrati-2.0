@@ -10,7 +10,7 @@ const userSchema = new Schema({
     email: {
         type: String,
         },
-    gender: {
+    rollno: {
         type: String,
         },
     designation: {

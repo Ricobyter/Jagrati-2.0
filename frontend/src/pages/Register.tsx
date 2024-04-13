@@ -6,6 +6,10 @@ import { AiFillEye, AiFillEyeInvisible } from 'react-icons/ai';
 export default function Register() {
   // const navigate = useNavigate();
 
+  const [profile, setProfile ] = useState({
+
+  })
+
   const [selectedYear, setSelectedYear] = useState<number | null>(null);
   const [selectedDesignation, setSelectedDesignation] = useState<string | null>("");
 
@@ -25,7 +29,7 @@ export default function Register() {
     <div className='min-h-screen flex justify-center items-center' >
       <div className='container mx-auto'>
         <div className='flex flex-col lg:flex-row w-10/12  lg:w-8/12 bg-white rounded-2xl mx-auto shadow-xl overflow-hidden '>
-          <div className='w-full lg:w-1/2 text-white flex flex-col items-center justify-center p-12 opacity-90 bg-no-repeat bg-center bg-cover'
+          <div className='w-full lg:w-1/2 text-white flex flex-col items-center justify-center p-12 opacity-90 bg-no-repeat bg-center bg-cover max-lg:hidden'
             style={{
               backgroundSize: 'cover',
               backgroundImage: `url(${img1})`
@@ -37,14 +41,15 @@ export default function Register() {
             <form>
 
               <div className='mt-5'>
-                <input type='text' className='border border-gray-400 py-1 px-2 w-full rounded-sm' placeholder='Your Name' onChange={(e) => handleChange(e)}/>
+                <input type='text' className='border border-gray-400 py-1 px-2 w-full rounded-sm' name = "username" placeholder='Your Name' />
               </div>
               <div className='mt-5'>
-                <input type='password' className='border border-gray-400 py-1 px-2 w-full rounded-sm' placeholder=' Roll No.' />
+                <input type='text' className='border border-gray-400 py-1 px-2 w-full rounded-sm' name = 'email' placeholder='Email' />
               </div>
               <div className='mt-5'>
-                <input type='text' className='border border-gray-400 py-1 px-2 w-full rounded-sm' placeholder='Email' />
+                <input type='text' className='border border-gray-400 py-1 px-2 w-full rounded-sm' name='rollno' placeholder=' Roll No.' />
               </div>
+
               <div className='mt-5 flex gap-3'>
                 <select
                   name="cars"
@@ -79,11 +84,6 @@ export default function Register() {
                   </div>
 
                 </div>
-              </div>
-
-              <div className='mt-5 flex'>
-                <p>Insert profile picture <span className='text-orange-500'>(optional)</span></p>
-                <input type="file" />
               </div>
               <div className='mt-5'>
                 <button className='text-center text-white w-full rounded-lg py-2 font-semibold bg-gradient-to-r from-orange-500 to-orange-400 hover:{bg-gradient-to-r from-orange-400 to-orange-500}' ><Link to="/">Register Now</Link></button>
