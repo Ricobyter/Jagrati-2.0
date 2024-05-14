@@ -19,11 +19,10 @@ export default function Homepage() {
         <About />
         <Impacts />
         <Newsletter />
+        <Achievements />
         <section className='mt-20 mb-20'>
           <Maps />
         </section>
-        {/* <Achievements /> */}
-        {/* <Maps /> */}
         <Footer />
     </div>
   )
