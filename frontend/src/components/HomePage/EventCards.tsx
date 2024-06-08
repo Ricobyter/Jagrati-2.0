@@ -7,7 +7,7 @@ interface CardProps {
 
 const EventCards: React.FC<CardProps> = ({ imageSrc, title, description, style }) => {
   return (
-    <div className="w-full flex justify-center items-center">
+    <div className="w-screen flex justify-center items-center">
       <div className=" lg:-[65vw] h-[650px] lg:h-[400px] flex shadow-xl text-white flex-col-reverse lg:flex-row">
         <div className={style}>
           <div className="w-full lg:w-[25vw] px-3 py-4">

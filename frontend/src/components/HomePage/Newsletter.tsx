@@ -15,8 +15,6 @@ export default function Newsletter() {
             <button>
                 <IoMdSend size={30} className="text-white bg-orange-500 rounded-lg px-2 py-1"/>
             </button>
-
-
         </div>
       
     </div>

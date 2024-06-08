@@ -1,5 +1,5 @@
 import React from "react";
-import Navbar from "../components/DashBoardNavbar";
+import Navbar from "../components/DashboardPage/DashBoardNavbar";
 
 const NavLinks: NavLink[] = [
   { title: "Home Page", link: "/" },

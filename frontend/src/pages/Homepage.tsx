@@ -1,11 +1,12 @@
-import Navbar from '../components/Navbar';
-import Caraousel from '../components/Caraousel';
-import About from '../components/About';
-import Footer from '../components/Footer';
-import Achievements from '../components/Achievements';
-import Newsletter from '../components/Newsletter';
-import Impacts from '../components/Impacts';
-import Maps from '../components/Maps';
+import Navbar from '../components/HomePage/Navbar';
+import Caraousel from '../components/HomePage/Caraousel';
+import About from '../components/HomePage/About';
+import Footer from '../components/HomePage/Footer';
+import Achievements from '../components/HomePage/Achievements';
+import Newsletter from '../components/HomePage/Newsletter';
+import Impacts from '../components/HomePage/Impacts';
+import Maps from '../components/HomePage/Maps';
+
 // import Maps from '../components/Maps2.jsx'
 
 export default function Homepage() {
